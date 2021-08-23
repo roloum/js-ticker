@@ -59,10 +59,12 @@ module.exports = {
                     //@todo validate result object the proper fields
 
                     if (this.#shouldAlertPriceChange(this.#tickers.get(currencyPair), data)) {
-                        console.log(
-                            new Date().toLocaleTimeString()+" - Change in asking price for "+currencyPair+
-                            " is greater than "+oscillation+"%. Old: "+
-                            this.#tickers.get(currencyPair).ask+", new: "+data.ask
+                        console.log("%s - Change in asking price for %s is greater than %d%. Old: %d, new: %d",
+                            new Date().toLocaleTimeString(),
+                            currencyPair,
+                            oscillation,
+                            this.#tickers.get(currencyPair).ask,
+                            data.ask,
                         );
                     }
 
